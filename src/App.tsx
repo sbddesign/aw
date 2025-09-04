@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { SingleKey, Wallet } from '@arkade-os/sdk'
+import { SingleKey, Wallet, Ramps } from '@arkade-os/sdk'
 import './App.css'
 
 interface WalletData {
@@ -135,16 +135,19 @@ function App() {
         arkServerUrl: 'https://mutinynet.arkade.sh',
       })
 
-      // Process boarding funds to convert on-chain to off-chain
-      await walletInstance.processBoardingFunds()
+      // Create Ramps instance to process boarding funds
+      const ramps = new Ramps(walletInstance)
+      
+      // Onboard all available boarding UTXOs to off-chain VTXOs
+      const commitmentTxid = await ramps.onboard()
 
       // Refresh balance after processing
       await refreshBalance()
       
-      alert('Boarding funds processed successfully!')
+      alert(`Boarding funds processed successfully! Commitment transaction ID: ${commitmentTxid}`)
     } catch (error) {
       console.error('Error processing boarding funds:', error)
-      alert('Failed to process boarding funds. Please try again.')
+      alert(`Failed to process boarding funds: ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
   }
 
