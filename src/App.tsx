@@ -78,14 +78,14 @@ function App() {
   return (
     <div style={{ 
       textAlign: 'center', 
-      marginTop: '20vh',
-      fontFamily: 'system-ui, -apple-system, sans-serif'
+      fontFamily: 'system-ui, -apple-system, sans-serif',
+      color: '#ffffff'
     }}>
       <h1 style={{ 
         fontSize: '4rem', 
         fontWeight: 'bold', 
         marginBottom: '2rem',
-        color: '#333'
+        color: '#ffffff'
       }}>
         aw
       </h1>
@@ -95,25 +95,25 @@ function App() {
           maxWidth: '600px', 
           margin: '0 auto', 
           padding: '2rem',
-          border: '1px solid #ddd',
+          border: '1px solid #444',
           borderRadius: '8px',
-          backgroundColor: '#f9f9f9'
+          backgroundColor: '#2d2d2d'
         }}>
-          <h2 style={{ marginBottom: '1rem', color: '#333' }}>Your Ark Wallet</h2>
+          <h2 style={{ marginBottom: '1rem', color: '#ffffff' }}>Your Ark Wallet</h2>
           
           <div style={{ 
             marginBottom: '1rem',
             padding: '1rem',
-            backgroundColor: '#fff',
+            backgroundColor: '#3a3a3a',
             borderRadius: '4px',
-            border: '1px solid #eee'
+            border: '1px solid #555'
           }}>
-            <strong>Address:</strong>
+            <strong style={{ color: '#ffffff' }}>Address:</strong>
             <div style={{ 
               wordBreak: 'break-all', 
               fontSize: '0.9rem',
               marginTop: '0.5rem',
-              color: '#666'
+              color: '#cccccc'
             }}>
               {wallet.address}
             </div>
@@ -123,12 +123,12 @@ function App() {
             <div style={{ 
               marginBottom: '1rem',
               padding: '1rem',
-              backgroundColor: '#fff',
+              backgroundColor: '#3a3a3a',
               borderRadius: '4px',
-              border: '1px solid #eee'
+              border: '1px solid #555'
             }}>
-              <strong>Balance:</strong>
-              <div style={{ marginTop: '0.5rem' }}>
+              <strong style={{ color: '#ffffff' }}>Balance:</strong>
+              <div style={{ marginTop: '0.5rem', color: '#cccccc' }}>
                 <div>Total: {wallet.balance.total} sats</div>
                 <div>Available: {wallet.balance.available} sats</div>
               </div>
@@ -157,7 +157,7 @@ function App() {
           style={{
             padding: '1rem 2rem',
             fontSize: '1.2rem',
-            backgroundColor: isCreating ? '#ccc' : '#007bff',
+            backgroundColor: isCreating ? '#666' : '#007bff',
             color: 'white',
             border: 'none',
             borderRadius: '8px',
