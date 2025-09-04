@@ -17,3 +17,9 @@ const wallet = await Wallet.create({
 // You can receive bitcoin offchain instantly! No inbound liquidity!
 const address = await wallet.getAddress()
 console.log('Ark Address:', address)
+
+const balance = await wallet.getBalance()
+// total is spendable in settlement
+console.log('Total :', balance.total)
+// available is spendable in offchain transactions
+console.log('Available :', balance.available)
